@@ -180,12 +180,12 @@ class SecAdvScraper:
         filteredIndirectOwners = IndirectOwners[IndirectOwners.Ownership_Code.isin(expCodes)]
         return filteredIndirectOwners
 
-    def getFilteredItem5D (self, min):
+    def getFilteredItem5D (self, min = 0):
         """
         Method to get Item5 items where assets are equal or greater than {min}
 
-        @params float min
-        @returns df filteredItem5D
+        @params optional float min default=0
+         @returns df filteredItem5D
         """
         Item5D = self.Item5D
         filteredItem5D  = Item5D[Item5D['Amount_of_Regulatory_Assets_under_Management'] >= min]
