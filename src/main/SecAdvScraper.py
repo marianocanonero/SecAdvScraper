@@ -139,8 +139,8 @@ class SecAdvScraper:
         return column
 
     def __cleanData (self, item):
-        item = item.replace('$','').strip()
-        item = int(item or 0)
+        item = item.replace('$','').replace(",","").strip()
+        item = float(item or 0)
         return item
 
     # ----------------------
