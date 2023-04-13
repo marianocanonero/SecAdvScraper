@@ -4,8 +4,17 @@ import logging
 import os
 import re
 
+#------------------------------------------------------------------------------
+# CONFIG
+#------------------------------------------------------------------------------
+
 FORMAT = '[%(asctime)s][%(levelname)s] %(module)s:%(funcName)s - %(message)s'
 logging.basicConfig(format=FORMAT, datefmt='%Y-%m-%d %H:%M:%S',)
+pd.options.display.float_format = '{:,.2f}'.format
+
+#------------------------------------------------------------------------------
+# MODULE
+#------------------------------------------------------------------------------
 
 class SecAdvScraper:
 
