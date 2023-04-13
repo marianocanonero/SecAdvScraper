@@ -6,8 +6,7 @@ import tkinter.ttk as ttk
 import tkinter.font as font
 import sys
 import re
-sys.path.append('src/main')
-from SecAdvScraper import SecAdvScraper as SAS
+from src.main.SecAdvScraper import SecAdvScraper as SAS
 
 class App(tk.Tk):
 
