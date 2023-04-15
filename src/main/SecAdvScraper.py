@@ -1,3 +1,5 @@
+#!venv/bin/python
+
 import requests
 import pandas as pd
 import logging
@@ -8,7 +10,7 @@ import re
 # CONFIG
 #------------------------------------------------------------------------------
 
-FORMAT = '[%(asctime)s][%(levelname)s] %(module)s:%(funcName)s - %(message)s'
+FORMAT = '[%(asctime)s][%(levelname)s] %(module)s - %(message)s'
 logging.basicConfig(format=FORMAT, datefmt='%Y-%m-%d %H:%M:%S',)
 pd.options.display.float_format = '{:,.2f}'.format
 
@@ -132,12 +134,13 @@ class SecAdvScraper:
         @params string output_path
         @returns {ORG_PK}.xlsx
         """
-        self.fileName = self.ORG_PK
-        self.filePath = os.path.join(output_path, self.fileName)
-        self.Item5D.to_csv(os.path.join(filapath, "Item5D".csv), sheet_name='Item5D', index=False)
+        fileName = self.ORG_PK + '.xlsx'
+        filePath = os.path.join(output_path, fileName)
+        writer = pd.ExcelWriter(filePath)
+        self.Item5D.to_excel(writer, sheet_name='Item5D', index=False)
         self.DirectOwners.to_excel(writer, sheet_name='DirectOwners', index=False)
         self.IndirectOwners.to_excel(writer, sheet_name='IndirectOwners', index=False)
-        writer.save()
+        writer.save()   
 
     # ----------------------
     # CLEANING/FORMATTING FUNCTIONS

@@ -1,3 +1,5 @@
+#!venv/bin/python
+
 from SecAdvScraper import SecAdvScraper as SAP
 import argparse
 import csv
